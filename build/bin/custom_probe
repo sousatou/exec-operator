@@ -1,0 +1,7 @@
+#!/bin/sh
+kubectl exec $1 -- sh -c "wget -O- some-api" >/dev/null 2>&1
+if [ $? = 0 ]; then
+    echo "Healthy"
+else
+    echo "Unhealty"
+fi
